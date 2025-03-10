@@ -35,16 +35,18 @@ import subprocess
 import warnings
 import dli
 
+import finfunc
+
 pd.options.mode.chained_assignment = None  # default='warn'
 
 ## Set directories
 
-input_dir = "C:\\Users\\LUKAS_ZIMMERMANN\\OneDrive - S&P Global\\Data"
-zip_dir = "C:\\Users\\LUKAS_ZIMMERMANN\\OneDrive - S&P Global\\Data\\Financials"
+input_dir = "<Directory>\\Data"
+zip_dir = "<Directory>\\Data\\Financials"
 
-output_dir = "C:\\Users\\LUKAS_ZIMMERMANN\\OneDrive - S&P Global\\Projects\\QRSS"
+output_dir = "<Directory>\\Projects\\GreenFactor"
 
-res_out = "C:\\Users\\LUKAS_ZIMMERMANN\\OneDrive - S&P Global\\Projects\\Results"
+res_out = "<Directory>\\Projects\\GreenFactor\\Results"
 
 
 #Daterange to be used:
@@ -64,7 +66,7 @@ maxdate = '09-30-2022'
     
 script = os.getcwd()
 #os.chdir(script+'\\Data')
-os.chdir('C:\\Users\\LUKAS_ZIMMERMANN\\OneDrive - S&P Global\\Data')
+os.chdir('<Directory>\\Data')
 
 
 #%% Stock market data:    
@@ -425,10 +427,8 @@ var_name_us = list(data.loc[:, data.columns.str.endswith('_us_dm')].columns)
 var_name_dm = [x.replace('_us', '') for x in var_name_us]
 var_name = [x.replace('_us_dm', '') for x in var_name_us]
 
-os.chdir('C:\\Users\\LUKAS_ZIMMERMANN\\OneDrive - S&P Global\\Projects')
+#os.chdir('<Directory>\\Projects')
     
-import finfunc
-
 #for v in var_name:
 #    data = data[data[v]!=0]
 
